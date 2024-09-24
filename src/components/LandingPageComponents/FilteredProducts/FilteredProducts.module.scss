@@ -1,0 +1,73 @@
+.discountedProductsContainer {
+    background: linear-gradient(to bottom, black 30%, white 30%);
+    margin-bottom: 10px;
+
+    .discountProductVideos {
+        object-fit: cover;
+        width: 100%;
+        height: 460px;
+    }
+}
+
+.newArrivalContainer {
+    background-image: url('../../../assets/images/NewArrivals/NewArrivalsBg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px 0px !important;
+    margin-bottom: 20px;
+}
+
+.newSalesContainer {
+    background: linear-gradient(to bottom, black 30%, white 30%);
+    margin-bottom: 20px;
+
+    .discountProductVideos {
+        object-fit: cover;
+        width: 100%;
+        height: 264px;
+    }
+    .discountProductImages {
+        object-fit: cover;
+        width: 100%;
+        height: 264px;
+    }
+}
+
+.popularContainer {
+    background: linear-gradient(to bottom, black 30%, white 30%);
+    margin-bottom: 25px;
+}
+
+.highlightedBrandsContainer {
+    background: linear-gradient(to bottom, black 30%, white 30%);
+    margin-bottom: 15px;
+
+    .highlightedBrandVideos {
+        object-fit: cover;
+        width: 100%;
+        height: 360px;
+    }
+
+    .brandImageColumn {
+        position: relative;
+        text-align: center;
+
+        .highlightedBrandImgs {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .centeredText {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    }
+
+}

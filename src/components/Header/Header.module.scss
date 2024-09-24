@@ -1,0 +1,106 @@
+// Header Top Bar
+.headerTopBar {
+  background-color: #f1f1f1;
+  font-size: 12px;
+  color: #333;
+  
+  // Custom Dropdown Styling
+  .customDropdown {
+    // color: #333;
+    font-size: 14px !important;
+    // box-shadow: none;
+  
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      background: none;
+    }
+  }
+}
+
+
+.headerNavbar {
+  padding: 10px 0;
+  margin-bottom: 5px;
+
+  .header-logo {
+    width: 100px;
+  }
+
+  .navbar-brand {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .customDropdown {
+    font-size: 14px !important;
+    color: #fff;
+
+    &::after {
+      margin-left: 5px;
+    }
+  }
+
+  .nav-link {
+    color: #fff;
+
+    &:hover {
+      color: lighten(#fff, 20%);
+    }
+  }
+
+  .form-control {
+    border-radius: 4px;
+  }
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+
+  i {
+    // font-size: 18px;
+    // color: #fff;
+    margin-right: 8px;
+  }
+}
+
+.headerCategories {
+  background-color: #FBBD34;
+  // padding: 10px 0;
+
+  .categoryBtn {
+    margin-right: 10px;
+    border-radius: 0;
+
+    i {
+      display: inline;
+      margin-right: 10px;
+    }
+  }
+
+  .inputGrp {
+    width: 65%;
+  }
+
+  .searchField {
+    border-radius: 0;
+    height: 30px;
+    align-self: center;
+  }
+
+  .searchBtn {
+    border-radius: 0;
+    height: 30px;
+    align-self: center;
+  }
+
+  .form-control {
+    margin-left: 10px;
+  }
+
+  .btn-secondary {
+    background-color: darken(#232f3e, 10%);
+  }
+}

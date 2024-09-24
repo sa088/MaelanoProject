@@ -1,0 +1,38 @@
+.flashSale {
+    .containerBackground {
+        background-image: url('../../../assets/images/FlashSale/FlashSaleBg.png');
+        // background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 54.36%), url('../../../assets/images/FlashSale.png') lightgray -2px -172.726px / 100.284% 156.27% no-repeat;
+        // background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding: 140px 0 10px;
+        max-width: 100%;
+        height: auto;
+
+        .flashCard {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 184px;
+            // height: 196px;
+            height: auto;
+
+            .progressBar {
+                height: 8px;
+            }
+        }
+    }
+
+    .bg-white {
+        padding: 20px 0;
+    }
+
+    .flashSaleVideo1 {
+        object-fit: cover;
+        height: 500px;
+    }
+
+    .flashSaleVideo2 {
+        object-fit: cover;
+        height: 300px;
+    }
+}

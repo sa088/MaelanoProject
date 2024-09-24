@@ -1,0 +1,39 @@
+.categoryImages {
+    max-width: 100%;
+    height: 110px;
+    margin-bottom: 10px;
+}
+
+.categoryVideo {
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    height: 370px;
+    // margin-bottom: 20px;
+}
+
+.topRatedContainer {
+    background: linear-gradient(to bottom, black 30%, white 30%);
+
+    .flashCard {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        width: 184px;
+        height: auto;
+
+        i {
+            color: #FBBD34;
+        }
+    }
+}
+
+.topRatedVideos {
+    object-fit: cover;
+    width: 100%;
+    height: 380px;
+}
+
+.lowPriceContainer {
+    background: linear-gradient(to bottom, black 20%, white 20%);
+    margin-bottom: 20px;
+}
