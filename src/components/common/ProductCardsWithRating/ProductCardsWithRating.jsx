@@ -5,12 +5,12 @@ import styles from './ProductCardsWithRating.module.scss';
 const ProductCardsWithRating = ({ cardRatingItems }) => {
   return (
     <Container fluid className={styles.cardRatingContainer}>
-    <Row className='text-center m-0 row-gap-4'>
+    <Row className='text-center m-0 row-gap-3'>
         {cardRatingItems.map((item, idx) => (
             <Col key={idx} xs="12" sm="6" md="" lg="2" className='d-flex justify-content-center'>
                 <Card className={styles.cardItems}>
                     <img src={item.imgSrc} alt={`Item ${idx + 1}`} className="img-fluid" />
-                    <CardBody className="text-start p-0 pt-2">
+                    <CardBody className="text-start p-2">
                         <CardSubtitle>Product name here</CardSubtitle>
                         <div className="d-flex justify-content-between align-items-center">
                             <CardTitle className='text-warning fs-5 fw-bold'>{item.text}</CardTitle>

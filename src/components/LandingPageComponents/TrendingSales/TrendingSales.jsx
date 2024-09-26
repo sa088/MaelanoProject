@@ -5,12 +5,6 @@ import { Button, Col, Container, Row } from 'reactstrap';
 import ShoesVideo from '../../../assets/videos/Video02.mp4';
 import FashionVideo from '../../../assets/videos/Video01.mp4';
 
-// const trendingVideos = [
-//     { src: require('../../../assets/videos/Video02.mp4')},
-//     { src: require('../../../assets/videos/Video03.mp4')},
-//     { src: require('../../../assets/videos/Video02.mp4')}
-// ];
-
 const TrendingSales = () => {
     const [mainVideo, setMainVideo] = useState(ShoesVideo);
     const [secondContainerVideo, setSecondContainerVideo] = useState(FashionVideo);
@@ -25,9 +19,9 @@ const TrendingSales = () => {
     ];
 
     const trendingVideos = [
-        { src: require('../../../assets/videos//Video02.mp4') },
-        { src: require('../../../assets/videos//Video03.mp4') },
-        { src: require('../../../assets/videos//Video02.mp4') }
+        { src: require('../../../assets/videos/Video02.mp4') },
+        { src: require('../../../assets/videos/Video03.mp4') },
+        { src: require('../../../assets/videos/Video02.mp4') },
     ];
 
   return (
@@ -36,8 +30,8 @@ const TrendingSales = () => {
 
         {/* First Trending Sales Container */}
         <Container fluid className={styles.trendingSalesContainer}>
-            <Row className="m-0">
-                <Col md="9" className="d-flex justify-content-center align-items-center position-relative p-0 pe-3">
+            <Row className="m-0 row-gap-2">
+                <Col md="9" className="d-flex justify-content-center align-items-center position-relative p-0 pe-md-3">
                     <video
                         key={mainVideo}
                         src={mainVideo}
@@ -75,12 +69,12 @@ const TrendingSales = () => {
                 </Col>
 
                 <Col md="3" className="d-flex flex-column justify-content-between p-0">
-                    <Row className="mb-2">
+                    <Row className="m-0 mb-2">
                         <Col className={styles.trendingSecondColumns}>
                             <video src={videoButtons[0].video} width="100%" height="250px" autoPlay muted loop playsInline className={styles.trendingSecondColumnVideos}></video>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="m-0">
                         <Col className={styles.trendingSecondColumns}>
                             <video src={videoButtons[1].video} width="100%" height="250px" autoPlay muted loop playsInline className={styles.trendingSecondColumnVideos}></video>
                         </Col>
@@ -91,7 +85,7 @@ const TrendingSales = () => {
 
         {/* Second Trending Sales Container */}
         <Container fluid className={styles.trendingSalesSecondContainer}>
-            <Row className="m-0">
+            <Row className="m-0 row-gap-2">
             <Col xs="12" md="6" className="d-flex justify-content-center align-items-center position-relative p-0 pe-2">
                     <video
                         key={secondContainerVideo}

@@ -3,7 +3,7 @@ import { Container } from 'reactstrap';
 
 const TopicTagLine = ({ text, padding = '20px' }) => {
   const containerStyle = {
-    padding: padding,  // Use padding directly in the style
+    padding: padding,
   };
 
   return (

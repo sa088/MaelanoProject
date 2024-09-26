@@ -48,9 +48,9 @@ const FilteredProducts = () => {
             <div>
                 <TopicTagLine text="Save upto 10-50%" />
                 <Container fluid className={styles.discountedProductsContainer}>
-                    <Row className="m-0">
+                    <Row className="m-0 row-gap-2">
                         {discountedProductVideos.map((item, index) => (
-                            <Col key={index} xs="12" sm="3" className="p-0 pe-2">
+                            <Col key={index} xs="12" sm="6" md="3" className="p-0 pe-2">
                                 <video src={item.src} autoPlay muted loop playsInline className={styles.discountProductVideos}></video>
                             </Col>
                         ))}
@@ -68,10 +68,9 @@ const FilteredProducts = () => {
             <div>
                 <TopicTagLine text="Explore more sales offer Just for You" />
                 <Container fluid className={styles.newSalesContainer}>
-                    <Row className="m-0">
+                    <Row className="m-0 row-gap-2">
                         {newSalesOffers.map((item, index) => (
-                            <Col key={index} xs="12" sm="3" className="p-0 pe-2">
-                                {/* <video src={item.src} autoPlay muted loop playsInline className={styles.discountProductVideos}></video> */}
+                            <Col key={index} xs="12" sm="6" md="3" className="p-0 pe-2">
                                 {item.src.endsWith('.mp4') ? (
                                     <video
                                         src={item.src}
@@ -115,20 +114,21 @@ const FilteredProducts = () => {
             <div>
                 <TopicTagLine text="Highlighted Brands" />
                 <Container fluid className={styles.highlightedBrandsContainer}>
-                    <Row className="m-0">
+                    <Row className="m-0 row-gap-2">
                         {discountedProductVideos.map((item, index) => (
-                            <Col key={index} xs="12" sm="3" className="p-0 pe-2">
+                            <Col key={index} xs="12" sm="6" md="3" className="p-0 pe-2">
                                 <video src={item.src} autoPlay muted loop playsInline className={styles.highlightedBrandVideos}></video>
                             </Col>
                         ))}
                     </Row>
-                    <Row className="text-center m-0 mt-3">
+                    <Row className="text-center m-0 mt-3 row-gap-md-2 row-gap-3">
                         {highlightedBrands.map((item, index) => (
                             <Col 
-                                key={index}
-                                xs="6" sm="4"
-                                lg={index === highlightedBrands.length - 1 ? "2" : ""}
-                                className={styles.brandImageColumn}
+                                key={index} 
+                                xs={index === highlightedBrands.length - 1 ? "12" : "6"} 
+                                md="4" 
+                                lg={index === highlightedBrands.length - 1 ? "2" : ""} 
+                                className={styles.brandImageColumn} 
                             >
                                 <img src={item.imgSrc} alt={`Item ${index + 1}`} className={styles.highlightedBrandImgs} />
                                 <p className={styles.centeredText}>{item.text}</p>

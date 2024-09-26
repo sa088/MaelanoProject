@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, CardBody, CardTitle, Progress } from 'reactstrap';
 import styles from './FlashSale.module.scss';
-// import img1 from '../../../assets/images/FlashSale/FlashSale-Img01.png';
 
 const flashSaleItems = [
   { imgSrc: require('../../../assets/images/FlashSale/FlashSale-Img01.png'), text: '$33.99' },
@@ -31,9 +30,9 @@ const middleImages = [
 ];
 
 const lastVideos = [
-  { src: require('../../../assets/videos//Video02.mp4')},
-  { src: require('../../../assets/videos//Video03.mp4')},
-  { src: require('../../../assets/videos//Video02.mp4')}
+  { src: require('../../../assets/videos/Video02.mp4')},
+  { src: require('../../../assets/videos/Video03.mp4')},
+  { src: require('../../../assets/videos/Video02.mp4')}
 ];
 
 const FlashSale = () => {
@@ -42,7 +41,7 @@ const FlashSale = () => {
 
       {/* First Container with background image */}
       <Container fluid className={styles.containerBackground}>
-        <Row className='text-center m-0'>
+        <Row className='text-center m-0 row-gap-3'>
           {flashSaleItems.map((item, idx) => (
             <Col key={idx} xs="12" sm="6" md="" lg="2" className='d-flex justify-content-center'>
               <Card className={styles.flashCard}>
@@ -60,7 +59,7 @@ const FlashSale = () => {
             </Col>
           ))}
         </Row>
-        <Row className="text-center m-0 mt-3">
+        <Row className="text-center m-0 mt-4">
           {flashSaleOffers.map((item, idx) => (
             <Col key={idx} xs="6" sm="3" lg="">
               <img src={item.imgSrc} alt={`Item ${idx + 1}`} className="img-fluid rounded-top-5" />
@@ -72,11 +71,11 @@ const FlashSale = () => {
 
       {/* Second Container */}
       <Container fluid className="bg-white my-3">
-        <Row>
+        <Row className="row-gap-3">
           {middleImages.slice(0, 2).map((item, idx) => (
             <Col key={idx} xs="12" sm="6" md="4" className="d-flex align-items-stretch">
               <video 
-                className={`img-fluid w-100 ${styles.flashSaleVideo1}`} 
+                className={styles.flashSaleVideo1} 
                 autoPlay muted loop playsInline controls 
               >
                 <source src={item.src} type="video/mp4" />
@@ -84,20 +83,20 @@ const FlashSale = () => {
               </video>
             </Col>
           ))}
-          <Col xs="12" sm="6" md="4" className="d-flex">
-            <Row>
-              <Col xs="12" className="mb-3">
+          <Col xs="12" sm="12" md="4" className="d-flex">
+            <Row className="row-gap-3">
+              <Col sm="6" md="12">
                 <img 
                   src={middleImages[2].imgSrc} 
                   alt="Middle Upper" 
-                  className="img-fluid w-100"
+                  className={styles.flashSaleImgs} 
                 />
               </Col>
-              <Col xs="12" className="d-flex align-items-end">
+              <Col sm="6" md="12" className="d-flex align-items-end">
                 <img 
                   src={middleImages[3].imgSrc} 
                   alt="Middle Lower" 
-                  className="img-fluid w-100"
+                  className={styles.flashSaleImgs} 
                 />
               </Col>
             </Row>
@@ -107,7 +106,7 @@ const FlashSale = () => {
 
       {/* Third Container */}
       <Container fluid className="bg-white my-3">
-        <Row>
+        <Row className="row-gap-2">
           {lastVideos.map((item, idx) => (
             <Col key={idx} xs="12" sm="4">
               <video 

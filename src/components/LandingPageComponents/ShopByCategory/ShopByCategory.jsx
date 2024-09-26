@@ -46,7 +46,7 @@ const ShopByCategory = () => {
                 <Container fluid>
                     <Row className="text-center m-0 my-3">
                         {duplicatedCategories.map((item, index) => (
-                            <Col key={index} xs="4" sm="3" lg="2">
+                            <Col key={index} xs="6" sm="3" lg="2">
                                 <img src={item.imgSrc} alt={`Item ${index + 1}`} className={styles.categoryImages} />
                                 <p>{item.text}</p>
                             </Col>
@@ -62,12 +62,12 @@ const ShopByCategory = () => {
             <div>
                 <TopicTagLine text="Discover the Best, Top-Rated Choices" />
                 <Container fluid className={styles.topRatedContainer}>
-                    <Row className='text-center m-0'>
+                    <Row className='text-center m-0 row-gap-3'>
                         {topRatedProducts.map((item, idx) => (
                             <Col key={idx} xs="12" sm="6" md="" lg="2" className='d-flex justify-content-center'>
                                 <Card className={styles.flashCard}>
                                     <img src={item.imgSrc} alt={`Item ${idx + 1}`} className="img-fluid" />
-                                    <CardBody className="text-start p-0 pt-2">
+                                    <CardBody className="text-start p-0 pt-2 px-2">
                                         <CardSubtitle>Product name here</CardSubtitle>
                                         <div className="d-flex justify-content-between align-items-center">
                                             <CardTitle className='text-warning fs-5 fw-bold'>{item.text}</CardTitle>
@@ -84,7 +84,7 @@ const ShopByCategory = () => {
                     </Row>
                 </Container>
                 <Container fluid className="bg-white my-3">
-                    <Row className="m-0">
+                    <Row className="m-0 row-gap-2">
                         {topRatedVideos.map((item, idx) => (
                             <Col key={idx} xs="12" sm="4">
                                 <video
@@ -104,7 +104,7 @@ const ShopByCategory = () => {
                 <Container fluid className={styles.lowPriceContainer}>
                     <Row className="m-0 row-gap-3">
                         {lowPriceOffers.map((item, index) => (
-                            <Col key={index} xs="12" sm="6">
+                            <Col key={index} xs="12" sm="6" className={styles.lowPriceColumns}>
                                 <img src={item.src} alt={`Offer ${index + 1}`} className="img-fluid" />
                             </Col>
                         ))}

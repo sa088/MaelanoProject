@@ -2,32 +2,33 @@ const dropdownData = [
   {
     title: 'HOME',
     items: [
-      { label: 'Home 1', link: '#' },
-      { label: 'Home 2', link: '#' },
-      { label: 'Home 3', link: '#' },
+      { label: 'Flash Sale', link: '#' },
+      { label: 'Categories', link: '#' },
+      { label: 'Top rated choices', link: '#' },
+      { label: 'Promotions', link: '#' },
     ],
   },
   {
     title: 'FEATURES',
     items: [
-      { label: 'Feature 1', link: '#' },
-      { label: 'Feature 2', link: '#' },
-      { label: 'Feature 3', link: '#' },
+      { label: 'Live', link: '#' },
+      { label: 'Videos', link: '#' },
+      { label: 'Social Media Links', link: '#' },
     ],
   },
   {
     title: 'OFFERS',
     items: [
-      { label: 'Offer 1', link: '#' },
-      { label: 'Offer 2', link: '#' },
-      { label: 'Offer 3', link: '#' },
+      { label: 'Flash Sales', link: '#' },
+      { label: 'Daily Deals', link: '#' },
+      { label: 'Discounts & Coupons', link: '#' },
     ],
   },
   {
     title: 'HELP',
     items: [
-      { label: 'FAQs', link: '#' },
-      { label: 'Customer Support', link: '#' },
+      { label: 'Customer Services', link: '#' },
+      { label: 'Chat with Al Assistant', link: '#' },
     ],
   },
   {

@@ -5,7 +5,7 @@ import styles from './ProductCards.module.scss';
 const ProductCards = ({ cardItems }) => {
     return (
         <Container fluid className={styles.productCards}>
-            <Row className='text-center m-0 row-gap-4'>
+            <Row className='text-center m-0 row-gap-3'>
                 {cardItems?.map((item, idx) => (
                     <Col key={idx} xs="12" sm="6" md="" lg="2" className='d-flex justify-content-center'>
                         <Card className={styles.card}>

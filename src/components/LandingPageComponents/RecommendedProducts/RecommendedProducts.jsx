@@ -50,15 +50,14 @@ const RecommendedProducts = () => {
                 </Navbar>
             </Container>
             <Container fluid className={styles.mainContainer}>
-                <Row className='m-0'>
+                <Row className='m-0 row-gap-3'>
                     <Col xs="12" md="6" className={styles.mainContainerFirstColumn}>
                         <video src={recommendedVideo} autoPlay muted loop playsInline controls className={styles.recommendedFirstVideo}></video>
                     </Col>
                     <Col xs="12" md="6" className={styles.mainContainerSecondColumn}>
-                        {/* <video src={recommendedVideo}></video> */}
                         <Row className={styles.recommendedCategoriesRow}>
                             {recommendedSections.map((item, idx) => (
-                                <Col key={idx} xs="6" sm="4" className={styles.recommendedCategoriesImgColumn}>
+                                <Col key={idx} xs="6" lg="4" className={styles.recommendedCategoriesImgColumn}>
                                     <img src={item.imgSrc} alt={`Item ${idx + 1}`} className={styles.recommendedCategoriesImg} />
                                     <p>{item.text}</p>
                                 </Col>

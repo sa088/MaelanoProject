@@ -1,10 +1,31 @@
-import React from 'react';
-import { Navbar, Nav, FormControl, Button, Container, Row, Col, Dropdown, InputGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Nav, Button, Container, Row, Col, Dropdown, InputGroup, Input, DropdownToggle, DropdownMenu, DropdownItem, NavbarBrand, NavbarToggler, NavItem, NavLink, Collapse } from 'reactstrap';
 import styles from './Header.module.scss';
 import MaelanoIcon from '../../assets/icons/MaelanoIcon.png';
 import dropdownData from './headerOptionsData';
+import CartIcon from '../../assets/icons/CartIcon.png';
 
 const Header = () => {
+  // States for handling dropdowns
+  const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
+  const [currencyDropdownOpen, setCurrencyDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState({});
+
+  // Toggle functions for dropdowns
+  const toggleLanguageDropdown = () => setLanguageDropdownOpen(!languageDropdownOpen);
+  const toggleCurrencyDropdown = () => setCurrencyDropdownOpen(!currencyDropdownOpen);
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
+  // Toggle dropdowns individually
+  const toggleDropdown = (index) => {
+    setDropdownOpen((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
+
   return (
     <>
       {/* Top bar */}
@@ -13,101 +34,139 @@ const Header = () => {
           <Col className="d-flex">
             <span>Welcome to MAELANO, Have Happy Shopping</span>
           </Col>
-          
-          <Col className="d-flex justify-content-end">
-            {/* Simple Language Dropdown */}
-            <Dropdown className="mx-2">
-              <Dropdown.Toggle variant="link" id="dropdown-language" className={`p-0 text-body text-decoration-none ${styles.customDropdown}`}>
-                ENGLISH
-              </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                <Dropdown.Item href="#">English</Dropdown.Item>
-                <Dropdown.Item href="#">Spanish</Dropdown.Item>
-                <Dropdown.Item href="#">French</Dropdown.Item>
-              </Dropdown.Menu>
+          <Col className="d-flex justify-content-end">
+            {/* Language Dropdown */}
+            <Dropdown isOpen={languageDropdownOpen} toggle={toggleLanguageDropdown} className="mx-2">
+              <DropdownToggle tag="a" caret className={`p-0 text-body text-decoration-none ${styles.customDropdown}`}>
+                ENGLISH
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem href="#">English</DropdownItem>
+                <DropdownItem href="#">Spanish</DropdownItem>
+                <DropdownItem href="#">French</DropdownItem>
+              </DropdownMenu>
             </Dropdown>
 
-            {/* Simple Currency Dropdown */}
-            <Dropdown className="mx-2">
-              <Dropdown.Toggle variant="link" id="dropdown-currency" className={`p-0 text-body text-decoration-none ${styles.customDropdown}`}>
+            {/* Currency Dropdown */}
+            <Dropdown isOpen={currencyDropdownOpen} toggle={toggleCurrencyDropdown} className="mx-2">
+              <DropdownToggle tag="a" caret className={`p-0 text-body text-decoration-none ${styles.customDropdown}`}>
                 US DOLLARS
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#">US Dollars</Dropdown.Item>
-                <Dropdown.Item href="#">Euro</Dropdown.Item>
-                <Dropdown.Item href="#">British Pound</Dropdown.Item>
-              </Dropdown.Menu>
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem href="#">US Dollars</DropdownItem>
+                <DropdownItem href="#">Euro</DropdownItem>
+                <DropdownItem href="#">British Pound</DropdownItem>
+              </DropdownMenu>
             </Dropdown>
           </Col>
         </Row>
       </Container>
 
       {/* Main Navigation */}
-      <Navbar bg="dark" variant="dark" expand="lg" className={styles.headerNavbar}>
-        <Container fluid>
-          <Navbar.Brand href="#" className="p-0">
+      <Navbar color="dark" dark expand="lg" className={styles.headerNavbar}>
+        <Container fluid className={styles.headerContainer}>
+          <NavbarBrand href="#" className="p-0">
             <img src={MaelanoIcon} alt="Logo" className="bg-white p-2 px-1 rounded-3" />
-          </Navbar.Brand>
+          </NavbarBrand>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-
+          <NavbarToggler onClick={toggle} />
+          
+          <Collapse isOpen={isOpen} navbar className={styles.navbarCollapse}>
+            <Nav className={`${styles.navbarDropdowns}`} navbar >
               {dropdownData?.map((dropdown, index) => (
-                <Dropdown as={Nav.Item} key={index}>
-                  <Dropdown.Toggle as={Nav.Link} className={styles.customDropdown}>
+                <Dropdown 
+                  nav
+                  inNavbar
+                  key={index}
+                  isOpen={dropdownOpen[index] || false}
+                  toggle={() => dropdown?.items?.length > 0 && toggleDropdown(index)}
+                >
+                  <DropdownToggle 
+                    nav 
+                    caret={dropdown?.items?.length > 0} // Only show caret if items exist
+                    className={styles.customDropdown}
+                  >
                     {dropdown?.title}
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    {dropdown?.items?.map((item, itemIndex) => (
-                      <Dropdown.Item href={item?.link} key={itemIndex}>
-                        {item?.label}
-                      </Dropdown.Item>
-                    ))}
-                  </Dropdown.Menu>
+                  </DropdownToggle>
+                  {dropdown?.items?.length > 0 && (
+                    <DropdownMenu>
+                      {dropdown?.items?.map((item, itemIndex) => (
+                        <DropdownItem href={item?.link} key={itemIndex}>
+                          {item?.label}
+                        </DropdownItem>
+                      ))}
+                    </DropdownMenu>
+                  )}
                 </Dropdown>
               ))}
             </Nav>
 
-            <Nav className={`d-flex align-items-center ${styles.headerIcons}`}>
-              <Nav.Link href="#" className="py-0 border-end text-white"><i className="fa fa-solid fa-user"></i>Login/Register</Nav.Link>
-              <Nav.Link href="#" className="py-0 border-end text-white"><i className="fa fa-solid fa-truck"></i>Track your Order</Nav.Link>
-              <Nav.Link href="#" className="py-0 text-white"><i className="fa fa-solid fa-phone"></i>Helpline +3-111-222-333</Nav.Link>
+            <Nav className={styles.headerIcons} navbar>
+              <NavItem>
+                <NavLink href="#" className={styles.headerNavLinks}>
+                  <i className="fa fa-solid fa-user"></i> Login/Register
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#" className={styles.headerNavLinks}>
+                  <i className="fa fa-solid fa-truck"></i> Track your Order
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#" className={styles.headerNavLinkLast}>
+                  <i className="fa fa-solid fa-phone"></i> Helpline +3-111-222-333
+                </NavLink>
+              </NavItem>
             </Nav>
-          </Navbar.Collapse>
+          </Collapse>
         </Container>
       </Navbar>
 
       {/* Categories Bar */}
       <Container fluid className={`d-flex align-items-center justify-content-between py-0 text-white ${styles.headerCategories}`}>
-        <Button variant="dark" className={styles.categoryBtn}>
-          <i className="fa fa-solid fa-list"></i>
-          CATEGORIES
+        <Button color="dark" className={styles.categoryBtn}>
+          <i className="fa fa-solid fa-list"></i> 
+          <span>CATEGORIES</span>
         </Button>
-        <InputGroup className={`me-3 ${styles.inputGrp}`}>  
-          <FormControl
+
+        <InputGroup className={styles.inputGrp}>
+          <Input
             type="text"
             placeholder="Looking for something specific?"
             className={styles.searchField}
           />
-          <Button variant="dark" className={styles.searchBtn}>
+          <Button color="dark" className={styles.searchBtn}>
             <i className="fa fa-search d-block"></i>
           </Button>
         </InputGroup>
-        <Nav className={`d-flex align-items-center ${styles.headerIcons}`}>
-          <Nav.Link href="#" className="py-0 px-2 text-white"><i className="fa fa-regular fa-bell"></i></Nav.Link>
-          <Nav.Link href="#" className="py-0 px-2 text-white"><i className="fa fa-solid fa-gift"></i></Nav.Link>
-          <Nav.Link href="#" className="py-0 px-2 text-white"><i className="fa fa-heart"></i></Nav.Link>
-          <Nav.Link href="#" className="py-0 px-2 text-white"><i className="fa fa-shopping-cart"></i></Nav.Link>
+
+        <Nav className={styles.categoriesBarIcons}>
+          <NavItem>
+            <NavLink href="#" className="py-0 px-2 text-white">
+              <i className="fa fa-regular fa-bell"></i>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" className="py-0 px-2 text-white">
+              <i className="fa fa-solid fa-gift"></i>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" className="py-0 px-2 text-white">
+              <i className="fa fa-heart"></i>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" className={styles.cartLink}>
+              <div className={styles.cartIconWrapper}>
+                <img src={CartIcon} alt="Cart Icon" className={styles.cartIconImg} />
+                <span className={styles.cartAmount}>$00.00</span>
+              </div>
+              <p className={styles.cardText}>Cart</p>
+            </NavLink>
+          </NavItem>
         </Nav>
-        {/* <div className={`d-flex align-items-center ${styles.headerIcons}`}>
-            <Nav.Link href="#"><i className="fa fa-heart"></i></Nav.Link>
-            <Nav.Link href="#"><i className="fa fa-shopping-cart"></i></Nav.Link>
-            <Nav.Link href="#">Login/Register</Nav.Link>
-        </div> */}
       </Container>
     </>
   );

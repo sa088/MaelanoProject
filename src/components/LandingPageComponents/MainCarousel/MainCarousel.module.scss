@@ -1,33 +1,9 @@
-// Hero Section Styles
 .heroSection {
   padding: 20px;
-  background-color: #f5f5f5;
 
   video {
     max-width: 100%;
-    border-radius: 5px;
-    margin-bottom: 4px;
     object-fit: cover;
-  }
-
-  // .heroAd {
-  //   video {
-  //     max-width: 100%;
-  //     border-radius: 5px;
-  //     margin-bottom: 4px;
-  //   }
-  // }
-
-  .carousel-item {
-    img {
-      max-width: 100%;
-    }
-
-    .carousel-caption {
-      h3 {
-        font-size: 24px;
-        color: #fff;
-      }
-    }
+    width: 100%;
   }
 }

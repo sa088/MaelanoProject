@@ -1,14 +1,11 @@
-// Header Top Bar
 .headerTopBar {
   background-color: #f1f1f1;
   font-size: 12px;
   color: #333;
   
-  // Custom Dropdown Styling
   .customDropdown {
-    // color: #333;
     font-size: 14px !important;
-    // box-shadow: none;
+    cursor: pointer;
   
     &:focus,
     &:hover {
@@ -18,40 +15,45 @@
   }
 }
 
-
 .headerNavbar {
+  background: #1A2425;
   padding: 10px 0;
   margin-bottom: 5px;
 
-  .header-logo {
-    width: 100px;
-  }
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  .navbar-brand {
-    img {
-      max-width: 100%;
+    .header-logo {
+      width: 100px;
     }
-  }
-
-  .customDropdown {
-    font-size: 14px !important;
-    color: #fff;
-
-    &::after {
-      margin-left: 5px;
+    .navbar-brand {
+      img {
+        max-width: 100%;
+      }
     }
-  }
-
-  .nav-link {
-    color: #fff;
-
-    &:hover {
-      color: lighten(#fff, 20%);
+    .navbarCollapse {
+      .navbarDropdowns {
+        margin-right: auto;
+        .customDropdown {
+          font-size: 14px !important;
+          color: #fff;
+          &::after {
+            margin-left: 5px;
+          }
+        }
+      }
     }
-  }
-
-  .form-control {
-    border-radius: 4px;
+    .nav-link {
+      color: #fff;
+      &:hover {
+        color: lighten(#fff, 20%);
+      }
+    }
+    .form-control {
+      border-radius: 4px;
+    }
   }
 }
 
@@ -59,16 +61,29 @@
   display: flex;
   align-items: center;
 
-  i {
-    // font-size: 18px;
-    // color: #fff;
-    margin-right: 8px;
+  .headerNavLinks {
+    padding: 0;
+    border-right: 1px solid #ffffff;
+    color: #ffffff;
+
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  .headerNavLinkLast {
+    padding: 0;
+    border-right: 0;
+    color: #ffffff;
+
+    i {
+      margin-right: 8px;
+    }
   }
 }
 
 .headerCategories {
   background-color: #FBBD34;
-  // padding: 10px 0;
 
   .categoryBtn {
     margin-right: 10px;
@@ -79,28 +94,152 @@
       margin-right: 10px;
     }
   }
-
   .inputGrp {
     width: 65%;
+    margin-right: 16px;
   }
-
   .searchField {
     border-radius: 0;
     height: 30px;
     align-self: center;
   }
-
   .searchBtn {
     border-radius: 0;
     height: 30px;
     align-self: center;
   }
-
   .form-control {
     margin-left: 10px;
   }
-
   .btn-secondary {
     background-color: darken(#232f3e, 10%);
+  }
+  .categoriesBarIcons {
+    display: flex;
+    align-items: center;
+  
+    i {
+      margin-right: 8px;
+    }
+    .cartLink {
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      padding: 0px 12px;
+
+      .cartIconWrapper {
+        position: relative;
+        display: inline-block;
+  
+        .cartAmount {
+          position: absolute;
+          top: 50%;
+          left: 20%;
+          transform: translate(-50%, -50%);
+          font-size: 12px;
+          font-weight: bold;
+          color: white;
+          pointer-events: none;
+        }
+      }
+      .cardText {
+        margin: 0;
+        margin-left: 2px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+
+// Responsive Behaviour - Media Queries
+@media (max-width: 1160px) {
+  .headerCategories {
+    .inputGrp {
+      width: 58%;
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .headerNavbar {
+    .headerContainer {
+      display: contents;
+      .navbarCollapse {
+        .navbarDropdowns {
+          .customDropdown {
+            font-size: 13px !important;
+          }
+        }
+      }
+    }
+  }
+  .headerIcons {
+    font-size: 14px;
+    .headerNavLinks, 
+    .headerNavLinkLast {
+      i {
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .headerNavbar {
+    .headerContainer {
+      .navbarCollapse {
+        text-align: center;
+        .navbarDropdowns {
+          margin-bottom: 15px;
+          .customDropdown {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+  }
+  .headerIcons {
+    font-size: 14px;
+    .headerNavLinks, 
+    .headerNavLinkLast {
+      padding: 10px;
+      border-right: 0;
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+  .headerCategories {
+    .inputGrp {
+      width: 48%;
+    }
+    .categoriesBarIcons {
+      i {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .headerCategories {
+    .categoryBtn {
+      i {
+        margin-right: 0;
+      }
+      span {
+        display: none;
+      }
+    }
+    .inputGrp {
+      width: 65%;
+    }
+    .categoriesBarIcons {
+      justify-content: flex-end;
+      i {
+        display: none;
+      }
+    }
   }
 }
